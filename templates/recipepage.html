@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Recipe Page{% endblock %}
+
+{% block content %}
+
+{% for item in page %}
+  <div class="single-recipe">
+    <h1>{{item[1]}}</h1>
+    <form action="#" method= autocomplete="off">
+      <label for="cuisine_category">
+        <i class="fas fa-utensils"></i>
+      </label>
+      <pre><select id="cuisine_category" name="cuisine_category" readonly>
+        <option value="" disabled selected>{{item[8]}}</option>
+      </select></pre>
+      <label for="recipe_intro_text" class="span-label">
+        <i class="fas fa-comment-alt"></i>
+      </label>
+      <pre><textarea rows = "20" cols = "100" class="textarea" role="textbox" name="recipe_intro_text" id="recipe_intro_text" placeholder="{{item[2]}}" readonly></textarea></pre>
+      <label for="prep_time">
+        <i class="fas fa-clock"></i>
+      </label>
+      <input type="text" name="prep_time" placeholder="{{item[3]}}" id="prep_time" readonly>
+      <label for="ingredients" class="span-label">
+        <i class="fas fa-list-ul"></i>
+      </label>
+      <pre><textarea rows = "20" cols = "100" class="textarea" role="textbox" name="ingredients" id="ingredients" placeholder="{{item[4]}}" readonly></textarea></pre>
+      <label for="how_to_make" class="span-label">
+        <i class="fas fa-pizza-slice"></i>
+      </label>
+      <pre><textarea rows = "20" cols = "100" class="textarea" role="textbox" name="how_to_make" id="how_to_make" placeholder="{{item[5]}}" readonly></textarea></pre>
+    </form>
+    <div class="edit_delete">
+        <a class="edit-item-recipe" href="{{url_for('edit_recipe', id = item[7])}}">✎</a> <a class="delete-item-recipe"href="{{url_for('delete_recipe', id = item[7])}}" onclick="return confirm('Are you sure you want to delete this recipe?')">✗</a>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

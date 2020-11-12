@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% block head %}
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<script>
+				// Dealing with Input width
+				let el = document.querySelector(".input-wrap .input");
+				let widthMachine = document.querySelector(".input-wrap .width-machine");
+				el.addEventListener("keyup", () => {
+				widthMachine.innerHTML = el.value;
+				});
+
+				// Dealing with Textarea Height
+				function calcHeight(value) {
+				let numberOfLineBreaks = (value.match(/\n/g) || []).length;
+				// min-height + lines x line-height + padding + border
+				let newHeight = 20 + numberOfLineBreaks * 20 + 12 + 2;
+				return newHeight;
+				}
+
+				let textarea = document.querySelector(".resize-ta");
+				textarea.addEventListener("keyup", () => {
+				textarea.style.height = calcHeight(textarea.value) + "px";
+				});
+		</script>
+		{% endblock %}
+	</head>
+	<body>
+		<nav class="navtop">
+			<div>
+				<a href="{{ url_for('home') }}" style="flex: 1;"><h1>OurRecipes</h1></a>
+				<a href="{{ url_for('profile') }}"><i class="fas fa-user-circle"></i>Profile</a>
+				<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+			</div>
+		</nav>
+		<div>
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>

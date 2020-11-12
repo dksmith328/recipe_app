@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Add Recipe{% endblock %}
+
+{% block content %}
+{% for item in page %}
+<div class="add-recipe">
+  <h1>Edit Recipe</h1>
+  <form action="{{url_for('edit_recipe', id = item[7])}}" method="POST">
+    <label for="cuisine_category">
+      <i class="fas fa-utensils"></i>
+    </label>
+    <select id="cuisine_category" name="cuisine_category">
+      <option value="" disabled selected>{{item[8]}}</option>
+    </select>
+    <label for="recipe_name">
+      <i class="fas fa-tag"></i>
+    </label>
+    <input type="text" name="recipe_name" value="{{item[1]}}" id="recipe_name" required>
+    <label for="recipe_intro_text" class="span-label">
+      <i class="fas fa-comment-alt"></i>
+    </label>
+    <pre><textarea rows = "20" cols = "100" class="textarea" role="textbox" name="recipe_intro_text" id="recipe_intro_text">{{item[2]}}</textarea></pre>
+    <label for="prep_time">
+      <i class="fas fa-clock"></i>
+    </label>
+    <input type="text" name="prep_time" value="{{item[3]}}" id="prep_time" required>
+    <label for="ingredients" class="span-label">
+      <i class="fas fa-list-ul"></i>
+    </label>
+    <pre><textarea rows = "20" cols = "100" class="textarea" role="textbox" name="ingredients" id="ingredients">{{item[4]}}</textarea></pre>
+    <label for="how_to_make" class="span-label">
+      <i class="fas fa-pizza-slice"></i>
+    </label>
+    <pre><textarea rows = "20" cols = "100" class="textarea" role="textbox" name="how_to_make" id="how_to_make">{{item[5]}}</textarea></pre>
+    <label for="image_url">
+      <i class="far fa-image"></i>
+    </label>
+    <input type="text" name="image_url" value="{{item[6]}}" id="image_url">
+    <div class="msg">{{ msg }}</div>
+    <input type="submit" value="Update Recipe" >
+  </form>
+</div>
+{% endfor %}
+{% endblock %}

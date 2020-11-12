@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+
+
+{% block content%}
+<div class="profile">
+  <h1 style="margin: 0;">Welcome to OurRecipes</h1>
+  <section class="background">
+    <image src="{{ url_for('static', filename='images/lemon-bread-front.jpg')}}" />
+    <div class="layer">
+    </div>
+    <div class="text-layer">
+      <h3>Convert all of your precious handwritten recipes.</h3>
+      <h4>Create an online cookbook, a digital recipe box, full of recipes you can access from anywhere in the world any time you are ready to use them.</h4>
+      <h4>Click below to register or sign-in.</h4>
+    </div>
+  </section>
+  <form action="{{ url_for('login') }}">
+    <input type="submit" value="Signup/Login" style="margin-top: 0;">
+    </form>
+</div>
+{% endblock %}
