@@ -76,7 +76,7 @@ def login():
             conn = mysql.connect()
             cursor = conn.cursor()
             #_hashed_password = generate_password_hash(password)
-            cursor.execute('SELECT * FROM recipe.recipes WHERE username = %s', (username))
+            cursor.execute('SELECT * FROM heroku_0a4b361d73d7f41.recipes WHERE username = %s', (username))
             data = cursor.fetchall()
 
             return render_template('profile.html', username=session['username'].capitalize(), data=data)
@@ -160,7 +160,7 @@ def profile():
         conn = mysql.connect()
         cursor = conn.cursor()
         #_hashed_password = generate_password_hash(password)
-        cursor.execute('SELECT * FROM recipe.recipes WHERE username = %s', (username))
+        cursor.execute('SELECT * FROM heroku_0a4b361d73d7f41.recipes WHERE username = %s', (username))
         data = cursor.fetchall()
 
         return render_template('profile.html', username=session['username'].capitalize(), data=data)
@@ -218,7 +218,7 @@ def add_recipe():
 def recipe_single(id):
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM recipe.recipes WHERE id= %s' , (id))
+    cursor.execute('SELECT * FROM heroku_0a4b361d73d7f41.recipes WHERE id= %s' , (id))
     page = cursor.fetchall()
 
     return render_template("recipepage.html", page=page)
@@ -234,7 +234,7 @@ def delete_recipe(id):
     conn = mysql.connect()
     cursor = conn.cursor()
     #_hashed_password = generate_password_hash(password)
-    cursor.execute('SELECT * FROM recipe.recipes WHERE username = %s', (username))
+    cursor.execute('SELECT * FROM heroku_0a4b361d73d7f41.recipes WHERE username = %s', (username))
     data = cursor.fetchall()
 
     return render_template('profile.html', username=session['username'].capitalize(), data=data)
@@ -262,7 +262,7 @@ def edit_recipe(id):
         conn = mysql.connect()
         cursor = conn.cursor()
         #_hashed_password = generate_password_hash(password)
-        cursor.execute('SELECT * FROM recipe.recipes WHERE username = %s', (username))
+        cursor.execute('SELECT * FROM heroku_0a4b361d73d7f41.recipes WHERE username = %s', (username))
         data = cursor.fetchall()
 
         return render_template('profile.html', username=session['username'].capitalize(), data=data, msg="Successfully updated recipe!")
@@ -270,7 +270,7 @@ def edit_recipe(id):
 
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM recipe.recipes WHERE id= %s' , (id))
+    cursor.execute('SELECT * FROM heroku_0a4b361d73d7f41.recipes WHERE id= %s' , (id))
     page = cursor.fetchall()
 
     return render_template("edit_recipe.html", username=session['username'].capitalize(), page=page)
