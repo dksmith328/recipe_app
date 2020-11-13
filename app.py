@@ -7,12 +7,13 @@ mysql = MySQL()
 app = Flask(__name__)
 app.secret_key = "hello"
 
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = '!22w0rmt3ch22!'
-app.config['MYSQL_DATABASE_DB'] = 'recipe'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_USER'] = 'b26f9007c2e579'
+app.config['MYSQL_DATABASE_PASSWORD'] = '71927f4b'
+app.config['MYSQL_DATABASE_DB'] = 'heroku_0a4b361d73d7f41'
+app.config['MYSQL_DATABASE_HOST'] = 'us-cdbr-east-02.cleardb.com'
 mysql.init_app(app)
 
+#mysql://b26f9007c2e579:71927f4b@us-cdbr-east-02.cleardb.com/heroku_0a4b361d73d7f41?reconnect=true
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
 #app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
