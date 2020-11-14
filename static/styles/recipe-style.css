@@ -112,7 +112,7 @@ body {
   	margin-bottom: 20px;
   	padding: 0 15px;
 }
-.login form input[type="submit"], .register form input[type="submit"], .profile input[type="submit"], .add-recipe form input[type="submit"]{
+.login form input[type="submit"], .register form input[type="submit"], .profile input[type="submit"], .add-recipe form input[type="submit"] {
   	width: 100%;
   	padding: 15px;
   	margin-top: 20px;
@@ -288,6 +288,7 @@ pre {
   border: 1px solid #dee0e4;
   margin-bottom: 20px;
 }
+
 .input-wrap {
   position: relative;
 }
@@ -353,4 +354,26 @@ h4 {
   color: white;
   font-size: 24px;
   padding: 0 40px;
+}
+
+/*---------------  NAVBAR------------------------  */
+
+.navbottom {
+    position: fixed;
+    left: 0px;
+    bottom:0px;
+  	background-color: black;
+  	width: 100%;
+  	border: 0;
+    vertical-align: middle;
+}
+.navbottom div {
+  	display: flex;
+}
+.navbottom div h2 {
+  font-size: 18px;
+  color: white;
+  margin: 0 auto;
+  font-weight: lighter;
+  padding: 10px;
 }

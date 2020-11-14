@@ -13,41 +13,7 @@ app.config['MYSQL_DATABASE_DB'] = 'heroku_0a4b361d73d7f41'
 app.config['MYSQL_DATABASE_HOST'] = 'us-cdbr-east-02.cleardb.com'
 mysql.init_app(app)
 
-#mysql://b26f9007c2e579:71927f4b@us-cdbr-east-02.cleardb.com/heroku_0a4b361d73d7f41?reconnect=true
-
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
-#app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.permanent_session_lifetime = timedelta(minutes=30)
-
-#db = SQLAlchemy(app)
-
-#class users(db.Model):
-#    _id = db.Column("id", db.Integer, primary_key=True)
-#    username = db.Column(db.String(100))
-#    email = db.Column(db.String(100))
-#    password = db.Column(db.String(100))
-
-
-
-#    def  __init__(self, username, email, password):
-#        self.username = username
-#        self.email = email
-#        self.password = password
-
-#class recipes(db.Model):
-#    _id = db.Column("id", db.Integer, primary_key=True)
-#    recipe_name = db.Column(db.String(100))
-#    recipe_intro_text = db.Column(db.String(1000))
-#    prep_time = db.Column(db.String(100))
-#    ingredients = db.Column(db.String(1000))
-#    how_to_make = db.Column(db.String(1000))
-
-#    def  __init__(self, recipe_name, recipe_intro_text, prep_time, ingredients, how_to_make):
-#        self.recipe_name = recipe_name
-#        self.recipe_intro_text = recipe_intro_text
-#        self.prep_time = prep_time
-#        self.ingredients = ingredients
-#        self.how_to_make = how_to_make
 
 @app.route('/')
 def home():
@@ -130,22 +96,6 @@ def register():
         cursor.close()
         conn.close()
 
-
-        #        existing_user = users.query.filter_by(username=username).first()
-                 # If account exists show error and validation checks
-        #        if existing_user:
-        #            msg = 'Account already exists!'
-
-        #        else:
-                    # Account doesnt exists and the form data is valid, now insert new account into accounts table
-        #            usr = users(username, email, password)
-        #            db.session.add(usr)
-        #            db.session.commit()
-        #            msg = 'You have successfully registered!'
-        #    elif request.method == 'POST':
-                # Form is empty... (no POST data)
-        #        msg = 'Please fill out the form!'
-            # Show registration form with message (if any)
     return render_template('register.html', msg=msg)
 
 
