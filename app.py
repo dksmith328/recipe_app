@@ -2,13 +2,14 @@ from flask import Flask, redirect, url_for, render_template, request, session, f
 from datetime import timedelta
 from flaskext.mysql import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
+import os
 
 mysql = MySQL()
 app = Flask(__name__)
 app.secret_key = "hello"
 
-app.config['MYSQL_DATABASE_USER'] = 'b26f9007c2e579'
-app.config['MYSQL_DATABASE_PASSWORD'] = '71927f4b'
+app.config['MYSQL_DATABASE_USER'] = os.environ.get('RECIPE_USER')
+app.config['MYSQL_DATABASE_PASSWORD'] = os.environ.get('RECIPE_PASSWORD')
 app.config['MYSQL_DATABASE_DB'] = 'heroku_0a4b361d73d7f41'
 app.config['MYSQL_DATABASE_HOST'] = 'us-cdbr-east-02.cleardb.com'
 mysql.init_app(app)
