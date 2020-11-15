@@ -1,7 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request, session, flash
 from datetime import timedelta
 from flaskext.mysql import MySQL
-from werkzeug.security import generate_password_hash, check_password_hash
+from passlib.hash import sha256_crypt
 import os
 
 mysql = MySQL()
@@ -29,11 +29,12 @@ def login():
         password = request.form['password']
         conn = mysql.connect()
         cursor = conn.cursor()
-        cursor.execute('SELECT * FROM users WHERE username = %s AND password = %s', (username, password))
+        cursor.execute('SELECT * FROM users WHERE username = %s', (username))
         #existing_user = users.query.filter_by(username=username, password=password).first()
         existing_user = cursor.fetchone()
+        hashed = existing_user[2]
         # If account exists in accounts table in out database
-        if existing_user:
+        if existing_user and sha256_crypt.verify(password, hashed):
             # Create session data, we can access this data in other routes
             session['loggedin'] = True
             session['id'] = existing_user[0]
@@ -73,31 +74,30 @@ def showRegister():
 def register():
     # Output message if something goes wrong...
     msg = ''
-    # Check if "username", "password" and "email" POST requests exist (user submitted form)
-#    if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'email' in request.form:
-        # Create variables for easy access
     try:
         username = request.form['username']
         password = request.form['password']
+        password2 = request.form['password2']
 
-        if username and password:
-            conn = mysql.connect()
-            cursor = conn.cursor()
-            #_hashed_password = generate_password_hash(password)
-            cursor.callproc('sp_create_user',(username, password))
-            data = cursor.fetchall()
+        if password == password2:
+            if username and password:
+                conn = mysql.connect()
+                cursor = conn.cursor()
+                #_hashed_password = generate_password_hash(password)
+                cursor.callproc('sp_create_user',(username, sha256_crypt.encrypt(password)))
+                data = cursor.fetchall()
 
-            if len(data) == 0:
-                conn.commit()
-                msg = 'You have successfully registered! Please login.'
-            else:
-                msg = 'Username already taken. Please try again.'
+                if len(data) == 0:
+                    conn.commit()
+                    msg = 'You have successfully registered! Please login.'
+                else:
+                    msg = 'Username already taken. Please try again.'
+        else:
+            msg = 'Passwords must match.'
+            return render_template('register.html', msg=msg)
 
     finally:
-        cursor.close()
-        conn.close()
-
-    return render_template('register.html', msg=msg)
+        return render_template('register.html', msg=msg)
 
 
 
