@@ -12,6 +12,8 @@ mysql = MySQL()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
+SQLALCHEMY_DB_URL = os.getenv("DB_CONN")
+
 app.config['MYSQL_DATABASE_USER'] = os.getenv('MYSQL_DATABASE_USER')
 app.config['MYSQL_DATABASE_PASSWORD'] = os.getenv('MYSQL_DATABASE_PASSWORD')
 app.config['MYSQL_DATABASE_DB'] = os.getenv('MYSQL_DATABASE_DB')
