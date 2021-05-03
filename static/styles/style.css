@@ -1,0 +1,321 @@
+body {
+  background: #DFE4DC;
+  color: #2f3e46;
+}
+.bg-light {
+  background-color: #ABC4B0 !important;
+}
+.navbar h2 {
+  padding-left: 25px;
+  color: #2f3e46;
+}
+.fas {
+  padding-right: 10px;
+}
+.container-fluid {
+  width: 60%;
+}
+
+.center {
+  text-align: center;
+  width: 100%;
+}
+.sort-form {
+  display: flex;
+  border-bottom: 1px solid #dee0e4;
+  margin-bottom: 20px;
+}
+.sort-form > div {
+  width: 33%;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.time-tag {
+  color: #354f52;
+}
+.sticky-bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.msg {
+  text-align: center;
+}
+.login, .register, .forgot_password {
+  width: 40%;
+  margin: 25% auto;
+  background-color: #52796f;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9); /* this adds the "card" effect */
+}
+
+.login .links, .register .links {
+  	padding: 0 15px;
+}
+.login .links a, .register .links a {
+  	color: #adb2ba;
+  	display: inline-flex;
+  	padding: 0 10px 10px 10px;
+  	font-weight: bold;
+}
+
+.login i, .register i, .forgot_password i {
+  border-radius: 50px;
+  padding: 10px;
+  background-color: white;
+}
+
+.form-input {
+  height: 75%;
+  width: 100%;
+  margin-top: 2%;
+  margin-left: -25px;
+  border: none;
+  border-radius: 5px;
+}
+.btn {
+  background-color: #354f52 !important;
+  border-color: #354f52 !important;
+}
+.front_photos::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.photo_col1 {
+  float: left; 
+  padding: 10px; 
+  width: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 5% 0 5% 0;
+}
+.photo_col2 {
+  float: left;  
+  padding-top: 12.5%;
+  width: 20%;
+  text-align: center;
+}
+.fa-arrow-right {
+  font-size: 120px;
+}
+.photo_col3 {
+  float: left; 
+  padding: 10px; 
+  width: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 5px 0 0 0;
+}
+.front1 {
+  width: 100%;
+}
+.front2 {
+  width: 100%;
+}
+.search-box {
+  text-align: center;
+}
+.profile {
+    max-width: 800px;
+    margin: 3% auto 10%;
+    background-color: #52796f;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9); /* this adds the "card" effect */
+}
+.main-page{
+  max-width: 1600px;
+  margin: 3% auto 10%;
+  background-color: #52796f;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9); /* this adds the "card" effect */
+}
+.add-recipe {
+    max-width: 700px;
+    margin: 3% auto 10%;
+    background-color: #52796f;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9); /* this adds the "card" effect */
+}
+.single-recipe {
+    margin: 3% auto 10%;
+    background-color: #52796f;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9); /* this adds the "card" effect */
+}
+.container {
+margin: 0 auto;
+max-width: 1280px;
+width: 90%;
+}
+.profile h1, .add-recipe h1 , .single-recipe h1, .login h1, .register h1, .forgot_password h1{
+  font-size: 36px;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid #dee0e4;
+}
+.navbar a {
+  color: #354f52;
+}
+.navbar a:hover {
+  color: #DFE4DC;
+}
+.navbar-brand {
+  color: #354f52 !important;
+}
+.profile h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: #354f52;
+  background-color: rgb(223, 228, 220, 0.5);
+  font-weight: 700;
+  width: 100%;
+  padding-top: 50%;
+  height: 100%;
+}
+.profile h2:hover {
+  color: #354f52;
+  background-color: rgb(223, 228, 220, 0.3);
+}
+
+select {
+  border: none;
+  background-color: #52796f;
+  color: #DFE4DC;
+}
+.links-botton-card > a {
+    color: #32475b;
+    font-size: small;
+}
+
+.recipes-list {
+    padding-top: 4%;
+
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 50%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9); /* this adds the "card" effect */
+    margin-bottom: 20px;
+    background-color: #DFE4DC;
+    background-attachment: fixed;
+    padding-top: 15px;
+}
+
+.card-image {
+  position: relative;
+  text-align: center;
+}
+
+.card-content {
+    padding: 10px;
+    }
+
+
+.card-image-img {
+    width: 90%;
+    height: 14vw;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  .single-card-image-img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+label {
+  display: flex;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+  }
+
+
+  a.delete-item-link {
+      float: right;
+      text-decoration: none;
+      color: #2f3e46;
+  }
+
+  a.edit-item-link  {
+    color: white;
+    text-decoration: none;
+  }
+
+  .delete-item-link:hover, .edit-item-link:hover  {
+      color: black;
+  }
+
+  .time-tag p {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+.edit-item-recipe {
+  background-color: #354f52 !important;
+  border-color: #354f52 !important;
+  width: 50%;
+  margin-left: 22%;
+  }
+
+pre {
+  white-space: pre-wrap;
+  margin-bottom: 0;
+  color: #DFE4DC;
+}
+  .edit_delete {
+    border-top: 1px solid #dee0e4;
+    padding-top: 10px;
+  }
+
+  .textarea {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    resize: both;
+    min-height: 40px;
+    line-height: 20px;
+    height: 100px;
+    border: 1px solid #dee0e4;
+    margin-bottom: 20px;
+  }
+
+form input, form select {
+  margin-bottom: 20px;
+}

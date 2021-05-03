@@ -5,39 +5,31 @@
 {% for item in page %}
 <div class="add-recipe">
   <h1>Edit Recipe</h1>
-  <form action="{{url_for('edit_recipe', id = item[7])}}" method="POST">
-    <label for="cuisine_category">
-      <i class="fas fa-utensils"></i>
-    </label>
+  <!--individual recipe id's are stored at index 8-->
+  <form action="{{url_for('update_recipe', id = item[7])}}" method="POST">
+    <label for="cuisine_category"><i class="fas fa-utensils"></i><h6>Cuisine Category</h6></label>
     <select id="cuisine_category" name="cuisine_category">
+      <!--get the cuisine category-->
       <option value="" disabled selected>{{item[8]}}</option>
     </select>
-    <label for="recipe_name">
-      <i class="fas fa-tag"></i>
-    </label>
-    <input type="text" name="recipe_name" value="{{item[1]}}" id="recipe_name" required>
-    <label for="recipe_intro_text" class="span-label">
-      <i class="fas fa-comment-alt"></i>
-    </label>
+    <!--get the recipe name-->
+    <label for="recipe_name"><i class="fas fa-tag"></i><h6>Recipe Name</h6></label>
+    <pre><input type="text" name="recipe_name" value="{{item[1]}}" id="recipe_name" required></pre>
+    <label for="recipe_intro_text" class="span-label"><i class="fas fa-comment-alt"></i><h6>Description</h6></label>
     <pre><textarea rows = "20" cols = "100" class="textarea" role="textbox" name="recipe_intro_text" id="recipe_intro_text">{{item[2]}}</textarea></pre>
-    <label for="prep_time">
-      <i class="fas fa-clock"></i>
-    </label>
-    <input type="text" name="prep_time" value="{{item[3]}}" id="prep_time" required>
-    <label for="ingredients" class="span-label">
-      <i class="fas fa-list-ul"></i>
-    </label>
+    <label for="prep_time"><i class="fas fa-clock"></i><h6>Prep Time</h6></label>
+    <pre><input type="text" name="prep_time" value="{{item[3]}}" id="prep_time" required></pre>
+    <label for="cook_time"><i class="fas fa-clock"></i><h6>Cook Time</h6></label>
+    <pre><input type="text" name="cook_time" value="{{item[9]}}" id="cook_time" required></pre>
+    <label for="ingredients" class="span-label"><i class="fas fa-list-ul"></i><h6>Ingredients</h6></label>
     <pre><textarea rows = "20" cols = "100" class="textarea" role="textbox" name="ingredients" id="ingredients">{{item[4]}}</textarea></pre>
-    <label for="how_to_make" class="span-label">
-      <i class="fas fa-pizza-slice"></i>
-    </label>
+    <label for="how_to_make" class="span-label"><i class="fas fa-pizza-slice"></i><h6>How to Make</h6></label>
     <pre><textarea rows = "20" cols = "100" class="textarea" role="textbox" name="how_to_make" id="how_to_make">{{item[5]}}</textarea></pre>
-    <label for="image_url">
-      <i class="far fa-image"></i>
-    </label>
-    <input type="text" name="image_url" value="{{item[6]}}" id="image_url">
+    <label for="image_url"><i class="fas fa-image"></i><h6>Image URL</h6></label>
+    <pre><input type="text" name="image_url" value="{{item[6]}}" id="image_url"></pre>
     <div class="msg">{{ msg }}</div>
-    <input type="submit" value="Update Recipe" >
+    <input type="submit" value="Update Recipe">
+    <a class="edit-item-recipe btn btn-primary" href="{{url_for('profile', id = item[7])}}">Back to recipes</a>
   </form>
 </div>
 {% endfor %}

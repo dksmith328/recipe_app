@@ -3,22 +3,30 @@
 
 		{% block content %}
 		<div class="login">
-			<h1>Login</h1>
-			<div class="links">
+			<h1 class="center">Login</h1>
+			<div class="links center">
 				<a href="{{ url_for('login') }}" class="active">Login</a>
 				<a href="{{ url_for('showRegister') }}">Register</a>
 			</div>
 			<form action="{{ url_for('login') }}" method="post" autocomplete="off">
-				<label for="username">
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required autocomplete="false" >
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
+				<div class="row mb-3">
+					<label for="username" class="col-sm-2 col-form-label"><i class="fas fa-user"></i></label>
+						<div class="col-sm">
+							<input class="form-input" type="text" name="username" placeholder="Username" id="username" required autocomplete="false" >
+						</div>
+				</div>
+				<div class="row mb-3">
+					<label for="password" class="col-sm-2 col-form-label"><i class="fas fa-lock"></i></label>
+						<div class="col-sm">
+							<input class="form-input" type="password" name="password" placeholder="Password" id="password" required>
+						</div>
+				</div>
+
 				<div class="msg">{{ msg }}</div>
-				<input type="submit" value="Login">
+				<input class="btn btn-primary center" type="submit" value="Login">
+				<div class="links center">
+					<a href="{{ url_for('show_forgot_password') }}" class="active">Forgot Password</a>
+				</div>
 			</form>
-		</div>
+			</div>
 		{% endblock %}

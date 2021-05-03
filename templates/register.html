@@ -1,29 +1,43 @@
 {% extends "base.html" %}
 {% block title %}Login Page{% endblock %}
 
-		{% block content %}
-		<div class="register">
-			<h1>Register</h1>
-			<div class="links">
-				<a href="{{ url_for('login') }}">Login</a>
-				<a href="{{ url_for('showRegister') }}" class="active">Register</a>
+{% block content %}
+<div class="register">
+	<h1 class="center">Register</h1>
+	<div class="links center">
+		<a href="{{ url_for('login') }}">Login</a>
+		<a href="{{ url_for('showRegister') }}" class="active">Register</a>
+	</div>
+	<form action="{{ url_for('register') }}" method="post" autocomplete="off">
+		<div class="row mb-3">
+			<label for="username" class="col-sm-2 col-form-label"><i class="fas fa-user"></i></label>
+			<div class="col-sm">
+				<input class="form-input" type="text" name="username" placeholder="Username" id="username" required
+					autocomplete="false">
 			</div>
-			<form action="{{ url_for('register') }}" method="post" autocomplete="off">
-				<label for="username">
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required autocomplete="false">
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
-				<label for="password2">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password2" placeholder="Re-enter Password" id="password2" required>
-				<div class="msg">{{ msg }}</div>
-				<input type="submit" value="Register">
-			</form>
 		</div>
+		<div class="row mb-3">
+			<label for="email" class="col-sm-2 col-form-label"><i class="fas fa-envelope"></i></label>
+			<div class="col-sm">
+				<input class="form-input" type="email" name="email" placeholder="Email" id="email" required>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<label for="password" class="col-sm-2 col-form-label"><i class="fas fa-lock"></i></label>
+			<div class="col-sm">
+				<input class="form-input" type="password" name="password" placeholder="Password" id="password" required>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<label for="password2" class="col-sm-2 col-form-label"><i class="fas fa-lock"></i></label>
+			<div class="col-sm">
+				<input class="form-input" type="password" name="password2" placeholder="Re-enter Password"
+					id="password2" required>
+			</div>
+		</div>
+		<div class="msg">{{ msg }}</div>
+		<input class="btn btn-primary center" type="submit" value="Register">
+	</form>
+</div>
 
-	{% endblock %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Search Results {% endblock %}
+{% block content %}
+<div class="profile">
+  <h1>Recipe results for "{{ ingredient }}"</h1>
+  <div class="container">
+    <div class="row">
+
+
+        {% for hit in hits %}
+                <div class="column">
+                  <div class="card">
+                    <div class="card-image">
+                      <!---Extract the recipe's url/image/label/source from the json returned from the api call-->
+                      <a href="{{ hit.recipe.url }}" target="_blank"><img class="card-image-img" src="{{ hit.recipe.image }}"></a>
+                      <a href="{{ hit.recipe.url }}" target="_blank"><h2 class="centered" style="padding-top: 35%; width: 91%;">{{ hit.recipe.label }}</h2></a>
+                    </div>
+                    <div class="card-content">
+                      <p class="time-tag">Source: {{hit.recipe.source}}</p>
+                  </div>
+                  </div>
+                </div>
+        {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
